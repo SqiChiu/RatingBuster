@@ -2488,17 +2488,17 @@ function RatingBuster:ProcessStat(stat, value, breakdownStats, link, color, stat
 			if not isParentModified then
 				effect = effect * statModContext("MOD_CRIT_RATING")
 			end
-			self:ProcessStat(StatLogic.Stats.MeleeCrit, effect, breakdownStats, link, color, statModContext, true, false, db.profile.showMeleeCritFromCritRating)
+			self:ProcessStat(StatLogic.Stats.MeleeCrit, effect, breakdownStats, link, color, statModContext, true, isBaseStat, db.profile.showMeleeCritFromCritRating)
 		elseif stat == StatLogic.Stats.RangedCritRating then
 			if not isParentModified then
 				effect = effect * statModContext("MOD_CRIT_RATING")
 			end
-			self:ProcessStat(StatLogic.Stats.RangedCrit, effect, breakdownStats, link, color, statModContext, true, false, db.profile.showRangedCritFromCritRating)
+			self:ProcessStat(StatLogic.Stats.RangedCrit, effect, breakdownStats, link, color, statModContext, true, isBaseStat, db.profile.showRangedCritFromCritRating)
 		elseif stat == StatLogic.Stats.SpellCritRating then
 			if not isParentModified then
 				effect = effect * statModContext("MOD_CRIT_RATING")
 			end
-			self:ProcessStat(StatLogic.Stats.SpellCrit, effect, breakdownStats, link, color, statModContext, true, false, db.profile.showSpellCritFromCritRating)
+			self:ProcessStat(StatLogic.Stats.SpellCrit, effect, breakdownStats, link, color, statModContext, true, isBaseStat, db.profile.showSpellCritFromCritRating)
 		elseif stat == StatLogic.Stats.MeleeHasteRating then
 			if not isParentModified then
 				effect = effect * statModContext("MOD_HASTE_RATING")
