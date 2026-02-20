@@ -97,6 +97,31 @@ StatLogic.StatModTable["GLOBAL"] = {
 			["value"] = 1,
 		},
 	},
+	["ADD_STR_MOD_ALL_STATS"] = {
+		{
+			["value"] = 1,
+		},
+	},
+	["ADD_AGI_MOD_ALL_STATS"] = {
+		{
+			["value"] = 1,
+		},
+	},
+	["ADD_STA_MOD_ALL_STATS"] = {
+		{
+			["value"] = 1,
+		},
+	},
+	["ADD_INT_MOD_ALL_STATS"] = {
+		{
+			["value"] = 1,
+		},
+	},
+	["ADD_SPI_MOD_ALL_STATS"] = {
+		{
+			["value"] = 1,
+		},
+	},
 }
 
 addon.GenerateWeaponSubclassStats()

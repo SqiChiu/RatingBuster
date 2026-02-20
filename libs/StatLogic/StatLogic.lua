@@ -264,15 +264,6 @@ end
 ----------------
 -- Stat Tools --
 ----------------
-StatLogic.GenericStatMap = {
-	[StatLogic.Stats.AllStats] = {
-		StatLogic.Stats.Strength,
-		StatLogic.Stats.Agility,
-		StatLogic.Stats.Stamina,
-		StatLogic.Stats.Intellect,
-		StatLogic.Stats.Spirit,
-	}
-}
 
 ---@class StatModInfo
 -- 0: inter-mod operations are done with addition,
@@ -424,6 +415,10 @@ StatLogic.StatModInfo = {
 local addedInfoMods = {
 	{
 		add = "AGI",
+		mod = "ALL_STATS",
+	},
+	{
+		add = "AGI",
 		mod = "INT",
 	},
 	{
@@ -569,6 +564,10 @@ local addedInfoMods = {
 	{
 		add = "HIT_RATING",
 		mod = "SPI",
+	},
+	{
+		add = "INT",
+		mod = "ALL_STATS",
 	},
 	{
 		add = "MANA",
@@ -749,6 +748,18 @@ local addedInfoMods = {
 	{
 		add = "SPELL_POWER",
 		mod = "INT",
+	},
+	{
+		add = "SPI",
+		mod = "ALL_STATS",
+	},
+	{
+		add = "STA",
+		mod = "ALL_STATS",
+	},
+	{
+		add = "STR",
+		mod = "ALL_STATS",
 	},
 	{
 		add = "STR",
@@ -1946,17 +1957,6 @@ do
 	end
 end
 
-local function ConvertGenericStats(table)
-	for generic, ratings in pairs(StatLogic.GenericStatMap) do
-		if table[generic] then
-			for _, rating in ipairs(ratings) do
-				table[rating] = table[rating] + table[generic]
-			end
-			table[generic] = nil
-		end
-	end
-end
-
 function StatLogic:GetItemTooltipNumLines(link)
 	tip:ClearLines()
 	tip:SetHyperlink(link)
@@ -2268,9 +2268,6 @@ do
 				end
 			end
 		end
-
-		-- Tooltip scanning done, do post processing
-		ConvertGenericStats(statTable)
 
 		cache[link] = copy(statTable)
 		return statTable

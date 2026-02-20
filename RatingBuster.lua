@@ -2421,12 +2421,7 @@ end
 ---@param show boolean
 function RatingBuster:ProcessStat(stat, value, breakdownStats, link, color, statModContext, isParentModified, isBaseStat, show)
 	if value == 0 then return end
-	if StatLogic.GenericStatMap[stat] then
-		local statList = StatLogic.GenericStatMap[stat]
-		for _, convertedStatID in ipairs(statList) do
-			RatingBuster:ProcessStat(convertedStatID, value, breakdownStats, link, color, statModContext, true, false, true)
-		end
-	elseif stat == StatLogic.Stats.HitRating then
+	if stat == StatLogic.Stats.HitRating then
 		local meleeHitRating = value * statModContext("ADD_MELEE_HIT_RATING_MOD_HIT_RATING")
 		self:ProcessStat(StatLogic.Stats.MeleeHitRating, meleeHitRating, breakdownStats, link, color, statModContext, true, isBaseStat, db.profile.showMeleeHitFromHitRating)
 
@@ -2520,6 +2515,21 @@ function RatingBuster:ProcessStat(stat, value, breakdownStats, link, color, stat
 		elseif stat == StatLogic.Stats.PvpPowerRating then
 			self:ProcessStat(StatLogic.Stats.PvpPower, effect, breakdownStats, link, color, statModContext, true, isBaseStat, db.profile.showPvpPowerFromPvpPowerRating)
 		end
+	elseif stat == StatLogic.Stats.AllStats then
+		local strength = value * statModContext("ADD_STR_MOD_ALL_STATS")
+		self:ProcessStat(StatLogic.Stats.Strength, strength, breakdownStats, link, color, statModContext, true, false, db.profile.showStrengthFromAllStats)
+
+		local agility = value * statModContext("ADD_AGI_MOD_ALL_STATS")
+		self:ProcessStat(StatLogic.Stats.Agility, agility, breakdownStats, link, color, statModContext, true, false, db.profile.showAgilityFromAllStats)
+
+		local stamina = value * statModContext("ADD_STA_MOD_ALL_STATS")
+		self:ProcessStat(StatLogic.Stats.Stamina, stamina, breakdownStats, link, color, statModContext, true, false, db.profile.showStaminaFromAllStats)
+
+		local intellect = value * statModContext("ADD_INT_MOD_ALL_STATS")
+		self:ProcessStat(StatLogic.Stats.Intellect, intellect, breakdownStats, link, color, statModContext, true, false, db.profile.showIntellectFromAllStats)
+
+		local spirit = value * statModContext("ADD_SPI_MOD_ALL_STATS")
+		self:ProcessStat(StatLogic.Stats.Spirit, spirit, breakdownStats, link, color, statModContext, true, false, db.profile.showSpiritFromAllStats)
 	elseif stat == StatLogic.Stats.Strength and db.profile.showStats then
 		local mod = statModContext("MOD_STR")
 		value = value * mod
@@ -3240,6 +3250,7 @@ local summaryCalcData = {
 		func = function(sum, statModContext)
 			return statModContext("MOD_STR") * (
 				sum[StatLogic.Stats.Strength]
+				+ sum[StatLogic.Stats.AllStats] * statModContext("ADD_STR_MOD_ALL_STATS")
 				+ summaryFunc[StatLogic.Stats.Defense](sum, statModContext) * statModContext("ADD_STR_MOD_DEFENSE")
 			)
 		end,
@@ -3251,6 +3262,7 @@ local summaryCalcData = {
 		func = function(sum, statModContext)
 			return statModContext("MOD_AGI") * (
 				sum[StatLogic.Stats.Agility]
+				+ sum[StatLogic.Stats.AllStats] * statModContext("ADD_AGI_MOD_ALL_STATS")
 				+ summaryFunc[StatLogic.Stats.Intellect](sum, statModContext) * statModContext("ADD_AGI_MOD_INT")
 			)
 		end,
@@ -3260,7 +3272,10 @@ local summaryCalcData = {
 		option = "sumSta",
 		stat = StatLogic.Stats.Stamina,
 		func = function(sum, statModContext)
-			return statModContext("MOD_STA") * sum[StatLogic.Stats.Stamina]
+			return statModContext("MOD_STA") * (
+				sum[StatLogic.Stats.Stamina]
+				+ sum[StatLogic.Stats.AllStats] * statModContext("ADD_STA_MOD_ALL_STATS")
+			)
 		end,
 	},
 	-- Intellect - INT
@@ -3268,7 +3283,10 @@ local summaryCalcData = {
 		option = "sumInt",
 		stat = StatLogic.Stats.Intellect,
 		func = function(sum, statModContext)
-			return statModContext("MOD_INT") * sum[StatLogic.Stats.Intellect]
+			return statModContext("MOD_INT") * (
+				sum[StatLogic.Stats.Intellect]
+				+ sum[StatLogic.Stats.AllStats] * statModContext("ADD_INT_MOD_ALL_STATS")
+			)
 		end,
 	},
 	-- Spirit - SPI
@@ -3276,7 +3294,10 @@ local summaryCalcData = {
 		option = "sumSpi",
 		stat = StatLogic.Stats.Spirit,
 		func = function(sum, statModContext)
-			return statModContext("MOD_SPI") * sum[StatLogic.Stats.Spirit]
+			return statModContext("MOD_SPI") * (
+				sum[StatLogic.Stats.Spirit]
+				+ sum[StatLogic.Stats.AllStats] * statModContext("ADD_SPI_MOD_ALL_STATS")
+			)
 		end,
 	},
 	{
@@ -3422,7 +3443,7 @@ local summaryCalcData = {
 		stat = StatLogic.Stats.HitRating,
 		func = function(sum, statModContext)
 			return sum[StatLogic.Stats.HitRating]
-				+ sum[StatLogic.Stats.Spirit] * statModContext("ADD_HIT_RATING_MOD_SPI")
+				+ summaryFunc[StatLogic.Stats.Spirit](sum, statModContext) * statModContext("ADD_HIT_RATING_MOD_SPI")
 		end,
 	},
 	-- Hit Chance - MELEE_HIT_RATING, WEAPON_SKILL
@@ -3712,7 +3733,7 @@ local summaryCalcData = {
 		func = function(sum, statModContext)
 			return statModContext("MOD_SPELL_DMG") * (
 				sum[StatLogic.Stats.NatureDamage]
-				+ sum[StatLogic.Stats.Agility] * statModContext("ADD_NATURE_DAMAGE_MOD_AGI")
+				+ summaryFunc[StatLogic.Stats.Agility](sum, statModContext) * statModContext("ADD_NATURE_DAMAGE_MOD_AGI")
 			) + summaryFunc[StatLogic.Stats.SpellDamage](sum, statModContext)
 		 end,
 	},
