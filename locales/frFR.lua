@@ -281,6 +281,7 @@ L[StatLogic.Stats.Agility] = "Agilité"
 L[StatLogic.Stats.Stamina] = "Endurance"
 L[StatLogic.Stats.Intellect] = "Intelligence"
 L[StatLogic.Stats.Spirit] = "Esprit"
+L[StatLogic.Stats.AllStats] = "All Stats"
 L[StatLogic.Stats.Mastery] = STAT_MASTERY
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format(STAT_MASTERY)
 L[StatLogic.Stats.MasteryRating] = "Score de maîtrise"

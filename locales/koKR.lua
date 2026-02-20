@@ -265,6 +265,7 @@ L[StatLogic.Stats.Agility] = "민첩성"
 L[StatLogic.Stats.Stamina] = "체력"
 L[StatLogic.Stats.Intellect] = "지능"
 L[StatLogic.Stats.Spirit] = "정신력"
+L[StatLogic.Stats.AllStats] = "All Stats"
 L[StatLogic.Stats.Mastery] = STAT_MASTERY
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format(STAT_MASTERY)
 L[StatLogic.Stats.MasteryRating] = STAT_MASTERY.." "..RATING

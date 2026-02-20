@@ -265,6 +265,7 @@ L[StatLogic.Stats.Agility] = "Ловкость"
 L[StatLogic.Stats.Stamina] = "Выносливость"
 L[StatLogic.Stats.Intellect] = "Интеллект"
 L[StatLogic.Stats.Spirit] = "Дух"
+L[StatLogic.Stats.AllStats] = "All Stats"
 L[StatLogic.Stats.Mastery] = "Искусность"
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format("Искусность")
 L[StatLogic.Stats.MasteryRating] = "Рейтинг искусности"

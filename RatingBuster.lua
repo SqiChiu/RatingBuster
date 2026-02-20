@@ -262,12 +262,21 @@ local options = {
 					args = {},
 					hidden = true,
 				},
+				all_stats = {
+					type = 'group',
+					name = L[StatLogic.Stats.AllStats],
+					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.AllStats]),
+					width = "full",
+					order = 8,
+					args = {},
+					hidden = true,
+				},
 				hit = {
 					type = 'group',
 					name = L[StatLogic.Stats.HitRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.HitRating]),
 					width = "full",
-					order = 8,
+					order = 9,
 					args = {},
 					hidden = true,
 				},
@@ -276,7 +285,7 @@ local options = {
 					name = L[StatLogic.Stats.CritRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.CritRating]),
 					width = "full",
-					order = 9,
+					order = 10,
 					args = {},
 					hidden = true,
 				},
@@ -285,7 +294,7 @@ local options = {
 					name = L[StatLogic.Stats.HasteRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.HasteRating]),
 					width = "full",
-					order = 10,
+					order = 11,
 					args = {},
 					hidden = true,
 				},
@@ -293,7 +302,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.MasteryRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.MasteryRating]),
-					order = 11,
+					order = 12,
 					args = {},
 					hidden = true,
 				},
@@ -302,7 +311,7 @@ local options = {
 					name = L[StatLogic.Stats.Health],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.Health]),
 					width = "full",
-					order = 12,
+					order = 13,
 					args = {},
 					hidden = true,
 				},
@@ -311,7 +320,7 @@ local options = {
 					name = L[StatLogic.Stats.ManaRegen],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.ManaRegen]),
 					width = "full",
-					order = 13,
+					order = 14,
 					args = {},
 					hidden = true,
 				},
@@ -319,7 +328,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.AttackPower],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.AttackPower]),
-					order = 14,
+					order = 15,
 					args = {},
 					hidden = true,
 				},
@@ -327,7 +336,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.WeaponSkill],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.WeaponSkill]),
-					order = 15,
+					order = 16,
 					hidden = true,
 					--[[
 					hidden = function()
@@ -347,7 +356,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.ExpertiseRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.ExpertiseRating]),
-					order = 16,
+					order = 17,
 					hidden = true,
 					args = {},
 				},
@@ -355,7 +364,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.SpellPower],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.SpellPower]),
-					order = 17,
+					order = 18,
 					args = {},
 					hidden = true,
 				},
@@ -363,7 +372,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.SpellDamage],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.SpellDamage]),
-					order = 18,
+					order = 19,
 					args = {},
 					hidden = true,
 				},
@@ -372,7 +381,7 @@ local options = {
 					name = L[StatLogic.Stats.SpellCrit],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.SpellCrit]),
 					width = "full",
-					order = 19,
+					order = 20,
 					args = {},
 					hidden = true,
 				},
@@ -380,7 +389,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.Armor],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.Armor]),
-					order = 20,
+					order = 21,
 					args = {},
 					hidden = true,
 				},
@@ -388,7 +397,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.Defense],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.Defense]),
-					order = 21,
+					order = 22,
 					hidden = true,
 					args = {},
 				},
@@ -396,7 +405,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.ResilienceRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.ResilienceRating]),
-					order = 22,
+					order = 23,
 					args = {},
 					hidden = true,
 				},
@@ -404,7 +413,7 @@ local options = {
 					type = 'group',
 					name = L[StatLogic.Stats.PvpPowerRating],
 					desc = L["Changes the display of %s"]:format(L[StatLogic.Stats.PvpPowerRating]),
-					order = 23,
+					order = 24,
 					args = {},
 					hidden = true,
 				},
@@ -1245,6 +1254,12 @@ local defaults = {
 		sumAvoidWithBlock = false,
 
 		-- Base stat conversions
+		showStrFromAllStats = false,
+		showAgiFromAllStats = false,
+		showStaFromAllStats = false,
+		showIntFromAllStats = false,
+		showSpiFromAllStats = false,
+
 		showBlockValueFromStr = false,
 
 		showRAPFromAgi = false,
@@ -2517,19 +2532,19 @@ function RatingBuster:ProcessStat(stat, value, breakdownStats, link, color, stat
 		end
 	elseif stat == StatLogic.Stats.AllStats then
 		local strength = value * statModContext("ADD_STR_MOD_ALL_STATS")
-		self:ProcessStat(StatLogic.Stats.Strength, strength, breakdownStats, link, color, statModContext, true, false, db.profile.showStrengthFromAllStats)
+		self:ProcessStat(StatLogic.Stats.Strength, strength, breakdownStats, link, color, statModContext, true, false, db.profile.showStrFromAllStats)
 
 		local agility = value * statModContext("ADD_AGI_MOD_ALL_STATS")
-		self:ProcessStat(StatLogic.Stats.Agility, agility, breakdownStats, link, color, statModContext, true, false, db.profile.showAgilityFromAllStats)
+		self:ProcessStat(StatLogic.Stats.Agility, agility, breakdownStats, link, color, statModContext, true, false, db.profile.showAgiFromAllStats)
 
 		local stamina = value * statModContext("ADD_STA_MOD_ALL_STATS")
-		self:ProcessStat(StatLogic.Stats.Stamina, stamina, breakdownStats, link, color, statModContext, true, false, db.profile.showStaminaFromAllStats)
+		self:ProcessStat(StatLogic.Stats.Stamina, stamina, breakdownStats, link, color, statModContext, true, false, db.profile.showStaFromAllStats)
 
 		local intellect = value * statModContext("ADD_INT_MOD_ALL_STATS")
-		self:ProcessStat(StatLogic.Stats.Intellect, intellect, breakdownStats, link, color, statModContext, true, false, db.profile.showIntellectFromAllStats)
+		self:ProcessStat(StatLogic.Stats.Intellect, intellect, breakdownStats, link, color, statModContext, true, false, db.profile.showIntFromAllStats)
 
 		local spirit = value * statModContext("ADD_SPI_MOD_ALL_STATS")
-		self:ProcessStat(StatLogic.Stats.Spirit, spirit, breakdownStats, link, color, statModContext, true, false, db.profile.showSpiritFromAllStats)
+		self:ProcessStat(StatLogic.Stats.Spirit, spirit, breakdownStats, link, color, statModContext, true, false, db.profile.showSpiFromAllStats)
 	elseif stat == StatLogic.Stats.Strength and db.profile.showStats then
 		local mod = statModContext("MOD_STR")
 		value = value * mod

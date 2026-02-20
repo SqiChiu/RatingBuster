@@ -264,6 +264,7 @@ L[StatLogic.Stats.Agility] = "Beweglichkeit"
 L[StatLogic.Stats.Stamina] = "Ausdauer"
 L[StatLogic.Stats.Intellect] = "Intelligenz"
 L[StatLogic.Stats.Spirit] = "Willenskraft"
+L[StatLogic.Stats.AllStats] = "All Stats"
 L[StatLogic.Stats.Mastery] = "Meisterschaft"
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format("Meisterschaft")
 L[StatLogic.Stats.MasteryRating] = "Meisterschaftswertung"

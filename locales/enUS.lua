@@ -257,6 +257,7 @@ L[StatLogic.Stats.Agility] = SPELL_STAT2_NAME
 L[StatLogic.Stats.Stamina] = SPELL_STAT3_NAME
 L[StatLogic.Stats.Intellect] = SPELL_STAT4_NAME
 L[StatLogic.Stats.Spirit] = SPELL_STAT5_NAME
+L[StatLogic.Stats.AllStats] = "All Stats"
 L[StatLogic.Stats.Mastery] = STAT_MASTERY
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format(STAT_MASTERY)
 L[StatLogic.Stats.MasteryRating] = STAT_MASTERY.." "..RATING
