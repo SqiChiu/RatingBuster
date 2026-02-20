@@ -1814,7 +1814,7 @@ do
 								icon = [[Interface/ICONS/Spell_DeathKnight_FrozenRuneWeapon]]
 							end
 							if name and icon then
-								local source = "|T"..icon..":20|t"..name
+								local source = "|T"..icon..":20|t "..name
 								sources[source] = true
 							end
 						end
