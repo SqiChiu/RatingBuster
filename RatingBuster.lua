@@ -2941,10 +2941,10 @@ function RatingBuster:ProcessStat(stat, value, breakdownStats, link, color, stat
 			breakdownStats[stat] = breakdownStats[stat] + value
 		end
 
-		local dodgeReduction = value * -statModContext("ADD_DODGE_REDUCTION_MOD_EXPERTISE")
+		local dodgeReduction = value * statModContext("ADD_DODGE_REDUCTION_MOD_EXPERTISE")
 		self:ProcessStat(StatLogic.Stats.DodgeReduction, dodgeReduction, breakdownStats, link, color, statModContext, true, false, db.profile.showDodgeReductionFromExpertise)
 
-		local parryReduction = value * -statModContext("ADD_PARRY_REDUCTION_MOD_EXPERTISE")
+		local parryReduction = value * statModContext("ADD_PARRY_REDUCTION_MOD_EXPERTISE")
 		self:ProcessStat(StatLogic.Stats.ParryReduction, parryReduction, breakdownStats, link, color, statModContext, true, false, db.profile.showParryReductionFromExpertise)
 
 		local spellHit = value * statModContext("ADD_SPELL_HIT_MOD_EXPERTISE")

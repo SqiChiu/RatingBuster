@@ -313,9 +313,7 @@ L[StatLogic.Stats.WeaponSkill] = "Weapon "..SKILL
 L[StatLogic.Stats.Expertise] = STAT_EXPERTISE
 L[StatLogic.Stats.ExpertiseRating] = STAT_EXPERTISE.." "..RATING
 L[StatLogic.Stats.DodgeReduction] = DODGE.." Reduction"
-S[StatLogic.Stats.DodgeReduction] = "to be Dodged"
 L[StatLogic.Stats.ParryReduction] = PARRY.." Reduction"
-S[StatLogic.Stats.ParryReduction] = "to be Parried"
 
 -- Ranged Stats
 L[StatLogic.Stats.RangedAttackPower] = RANGED_ATTACK_POWER
