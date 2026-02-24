@@ -252,7 +252,7 @@ L["statPatterns"] = {
 L["StatBreakdownOrder"] = "%s %s"
 L["numberSuffix"] = "点"
 L["Show %s"] = SHOW.." %s"
-L["Show Modified %s"] = "显示 %s（包含加成）"
+L["Show Modified %s"] = "显示 %s (包含加成)"
 -- for hit rating showing both physical and spell conversions
 -- (+1.21%, S+0.98%)
 -- (+1.21%, +0.98% S)
@@ -399,6 +399,7 @@ L[StatLogic.Stats.FrostResistance] = "冰霜抗性"
 L[StatLogic.Stats.ShadowResistance] = "暗影抗性"
 
 L[StatLogic.Stats.ArcaneResistance] = "奥术抗性"
+
 
 
 
