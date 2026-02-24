@@ -267,7 +267,7 @@ L[StatLogic.Stats.Agility] = "敏捷"
 L[StatLogic.Stats.Stamina] = "耐力"
 L[StatLogic.Stats.Intellect] = "智力"
 L[StatLogic.Stats.Spirit] = "精神"
-L[StatLogic.Stats.AllStats] = "All Stats"
+L[StatLogic.Stats.AllStats] = "所有屬性"
 L[StatLogic.Stats.Mastery] = STAT_MASTERY
 L[StatLogic.Stats.MasteryEffect] = SPELL_LASTING_EFFECT:format(STAT_MASTERY)
 L[StatLogic.Stats.MasteryRating] = STAT_MASTERY.."等級"
@@ -402,4 +402,5 @@ L[StatLogic.Stats.FrostResistance] = "冰霜抗性"
 L[StatLogic.Stats.ShadowResistance] = "暗影抗性"
 
 L[StatLogic.Stats.ArcaneResistance] = "秘法抗性"
+
 
