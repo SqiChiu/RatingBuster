@@ -401,8 +401,3 @@ L[StatLogic.Stats.NatureResistance] = "自然抗性"
 L[StatLogic.Stats.FrostResistance] = "冰霜抗性"
 L[StatLogic.Stats.ShadowResistance] = "暗影抗性"
 L[StatLogic.Stats.ArcaneResistance] = "秘法抗性"
-
-
-
-
-
