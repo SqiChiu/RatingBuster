@@ -135,7 +135,7 @@ L["Healing <- Healing, Intellect, Spirit, Agility, Strength"] = "治疗 ← 治�
 L["Hit Chance <- Hit Rating, Weapon Skill Rating"] = "物理命中几率 ← 命中等级、武器技能等级"
 L["Crit Chance <- Crit Rating, Agility, Weapon Skill Rating"] = "物理爆击几率 ← 爆击等级、敏捷、武器技能等级"
 L["Haste <- Haste Rating"] = "急速 ← 急速等级"
-L["Ranged Hit Chance <- Hit Rating, Weapon Skill Rating, Ranged Hit Rating"] = "远程米中几率 ← 命中等级、武器技能等级、远程命中等级"
+L["Ranged Hit Chance <- Hit Rating, Weapon Skill Rating, Ranged Hit Rating"] = "远程命中几率 ← 命中等级、武器技能等级、远程命中等级"
 L["Ranged Crit Chance <- Crit Rating, Agility, Weapon Skill Rating, Ranged Crit Rating"] = "远程爆击几率 ← 爆击等级、敏捷、武器技能等级、远程爆击等级"
 L["Ranged Haste <- Haste Rating, Ranged Haste Rating"] = "远程急速 ← 急速等级、远程急速等级"
 L["Spell Hit Chance <- Spell Hit Rating"] = "法术命中几率 ← 法术命中等级"
@@ -300,7 +300,7 @@ L[StatLogic.Stats.ArmorPenetration] = "护甲穿透"
 L[StatLogic.Stats.ArmorPenetrationRating] = "护甲穿透等级"
 
 -- Weapon Stats
-L[StatLogic.Stats.AverageWeaponDamage] = "近战伤害" -- DAMAGE = "Damage"
+L[StatLogic.Stats.AverageWeaponDamage] = "平均伤害" -- DAMAGE = "Damage"
 L[StatLogic.Stats.WeaponDPS] = "每秒伤害"
 
 L[StatLogic.Stats.Hit] = STAT_HIT_CHANCE
@@ -397,4 +397,5 @@ L[StatLogic.Stats.FireResistance] = "火焰抗性"
 L[StatLogic.Stats.NatureResistance] = "自然抗性"
 L[StatLogic.Stats.FrostResistance] = "冰霜抗性"
 L[StatLogic.Stats.ShadowResistance] = "暗影抗性"
+
 L[StatLogic.Stats.ArcaneResistance] = "奥术抗性"
