@@ -300,7 +300,7 @@ L[StatLogic.Stats.ArmorPenetration] = "护甲穿透"
 L[StatLogic.Stats.ArmorPenetrationRating] = "护甲穿透等级"
 
 -- Weapon Stats
-L[StatLogic.Stats.AverageWeaponDamage] = "平均伤害" -- DAMAGE = "Damage"
+L[StatLogic.Stats.AverageWeaponDamage] = "平均武器伤害" -- DAMAGE = "Damage"
 L[StatLogic.Stats.WeaponDPS] = "每秒伤害"
 
 L[StatLogic.Stats.Hit] = STAT_HIT_CHANCE
@@ -399,3 +399,4 @@ L[StatLogic.Stats.FrostResistance] = "冰霜抗性"
 L[StatLogic.Stats.ShadowResistance] = "暗影抗性"
 
 L[StatLogic.Stats.ArcaneResistance] = "奥术抗性"
+
