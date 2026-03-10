@@ -4,8 +4,10 @@ local handler
 local enabled = false
 
 local RunHandler = function(tooltip)
-	if enabled then
+	if enabled and not runningHandler[tooltip] then
+		runningHandler[tooltip] = true
 		handler(tooltip)
+		runningHandler[tooltip] = nil
 	end
 end
 
@@ -25,6 +27,7 @@ end
 local directUpdateTypes = {
 	["GameTooltip"] = true,
 	["CheckButton"] = true,
+	["Button"] = true,
 }
 
 local function HandleTooltipSetItem(tooltip)
@@ -122,4 +125,5 @@ end
 
 function addon:DisableHook()
 	enabled = false
+
 end
