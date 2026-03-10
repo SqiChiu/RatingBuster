@@ -3,6 +3,8 @@
 local handler
 local enabled = false
 
+local runningHandler = {}
+
 local RunHandler = function(tooltip)
 	if enabled and not runningHandler[tooltip] then
 		runningHandler[tooltip] = true
@@ -127,3 +129,4 @@ function addon:DisableHook()
 	enabled = false
 
 end
+
